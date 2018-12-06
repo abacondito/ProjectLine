@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelfDestruct : MonoBehaviour {
 
-    public float timer;
+    private float timer = 10;
 
 	// Use this for initialization
 	void Start () {

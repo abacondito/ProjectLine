@@ -18,7 +18,8 @@ public class DrawLine2D : MonoBehaviour
     protected List<Vector2> m_Points;
     private Shader shader;
     public Material material;
-    public float lineWidth = 0.1f;
+    public float lineWidth = 0.05f;
+    public float lineWidth2 = 0.0f;
     public GameObject prefabLine;
     GameObject line;
 
@@ -57,8 +58,8 @@ public class DrawLine2D : MonoBehaviour
     protected virtual void Awake()
     {
         Input.simulateMouseWithTouches = true;
-        //shader = Shader.Find("Particles/Additive");
-        //material = new Material(shader);        
+        shader = Shader.Find("Particles/Additive");
+        material = new Material(shader);        
         if (m_Camera == null)
         {
             m_Camera = Camera.main;
@@ -90,6 +91,17 @@ public class DrawLine2D : MonoBehaviour
                     }
                 }                
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            m_LineRenderer.startWidth = lineWidth2;
+            m_LineRenderer.endWidth = lineWidth2;
+            //CreateDefaultEdgeCollider2D();
+            m_EdgeCollider2D.points = m_Points.ToArray();
+            line.AddComponent<SelfDestroyLine>();
+            m_LineRenderer.startColor = Color.cyan;
+            m_LineRenderer.endColor = Color.blue;
+            m_EdgeCollider2D.enabled = true;
+        }
     }
 
     protected virtual void Reset()
@@ -106,17 +118,18 @@ public class DrawLine2D : MonoBehaviour
         m_LineRenderer = line.AddComponent<LineRenderer>();
         m_LineRenderer.positionCount = 0;
         m_LineRenderer.material = material; 
-        m_LineRenderer.startColor = Color.cyan;
-        m_LineRenderer.endColor = Color.blue;
+        m_LineRenderer.startColor = Color.red;
+        m_LineRenderer.endColor = Color.red;
         m_LineRenderer.startWidth = lineWidth;
         m_LineRenderer.endWidth = lineWidth;
         m_LineRenderer.useWorldSpace = true;
-        line.AddComponent<SelfDestroyLine>();
+        //line.AddComponent<SelfDestroyLine>();
     }
 
     protected virtual void CreateDefaultEdgeCollider2D()
     {
         m_EdgeCollider2D = line.AddComponent<EdgeCollider2D>();
+        m_EdgeCollider2D.enabled = false;
     }
 
 }
