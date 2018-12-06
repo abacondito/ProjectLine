@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class KillPlayer : MonoBehaviour {
         GameObject go = collision.gameObject;
         if (go.CompareTag("Player"))
         {
-            GameObject.Destroy(go.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -28,7 +29,7 @@ public class KillPlayer : MonoBehaviour {
         GameObject go = collision.gameObject;
         if (go.CompareTag("Player"))
         {
-            GameObject.Destroy(go.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -37,7 +38,7 @@ public class KillPlayer : MonoBehaviour {
         GameObject go = collision.gameObject;
         if (go.CompareTag("Player"))
         {
-            GameObject.Destroy(go.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

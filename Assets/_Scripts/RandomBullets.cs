@@ -29,8 +29,9 @@ public class RandomBullets : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (timer>=cooldown) {
-            for (int i = 0; i < bulletNumber; i++) {
-                posVector[i] = new Vector3(Random.Range(10.0f, 20.0F), Random.Range(0.0F, 20.0F), 0.0f);
+                    
+            for (int i = 0; i < bulletNumber; i++) {                
+                posVector[i] = new Vector3(RandomRange(), Random.Range(0.0F, 12.0F), 0.0f);
             }
 
             foreach (Vector3 pos in posVector) {
@@ -46,5 +47,15 @@ public class RandomBullets : MonoBehaviour {
     private void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
+    }
+
+    private float RandomRange()
+    {
+        var rand = Random.Range(8.0f, 12.0f);
+        if (Random.Range(0, 100) <= 50)
+        {
+            rand = rand * -1f;
+        }
+        return rand;
     }
 }

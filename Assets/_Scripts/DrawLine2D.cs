@@ -17,7 +17,7 @@ public class DrawLine2D : MonoBehaviour
     [SerializeField]
     protected List<Vector2> m_Points;
     private Shader shader;
-    private Material material;
+    public Material material;
     public float lineWidth = 0.1f;
     public GameObject prefabLine;
     GameObject line;
@@ -56,13 +56,15 @@ public class DrawLine2D : MonoBehaviour
 
     protected virtual void Awake()
     {
-        shader = Shader.Find("Particles/Additive");
-        material = new Material(shader);        
+        Input.simulateMouseWithTouches = true;
+        //shader = Shader.Find("Particles/Additive");
+        //material = new Material(shader);        
         if (m_Camera == null)
         {
             m_Camera = Camera.main;
         }       
     }
+
 
     protected virtual void Update()
     {
@@ -104,8 +106,8 @@ public class DrawLine2D : MonoBehaviour
         m_LineRenderer = line.AddComponent<LineRenderer>();
         m_LineRenderer.positionCount = 0;
         m_LineRenderer.material = material; 
-        m_LineRenderer.startColor = Color.red;
-        m_LineRenderer.endColor = Color.red;
+        m_LineRenderer.startColor = Color.cyan;
+        m_LineRenderer.endColor = Color.blue;
         m_LineRenderer.startWidth = lineWidth;
         m_LineRenderer.endWidth = lineWidth;
         m_LineRenderer.useWorldSpace = true;
