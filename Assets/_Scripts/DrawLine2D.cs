@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class DrawLine2D : MonoBehaviour
@@ -22,6 +23,9 @@ public class DrawLine2D : MonoBehaviour
     public float lineWidth2 = 0.0f;
     public GameObject prefabLine;
     GameObject line;
+    public Slider energySlider;
+    public float energyRecharge=0.5f;
+    public float maxEnergy = 100.0f;
 
     public virtual LineRenderer lineRenderer
     {
@@ -58,8 +62,8 @@ public class DrawLine2D : MonoBehaviour
     protected virtual void Awake()
     {
         Input.simulateMouseWithTouches = true;
-        shader = Shader.Find("Particles/Additive");
-        material = new Material(shader);        
+        //shader = Shader.Find("Particles/Additive");
+        //material = new Material(shader);        
         if (m_Camera == null)
         {
             m_Camera = Camera.main;
@@ -71,7 +75,7 @@ public class DrawLine2D : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             Reset();
            
         }
@@ -81,7 +85,8 @@ public class DrawLine2D : MonoBehaviour
             
                 if (!m_Points.Contains(mousePosition))
                 {
-                    m_Points.Add(mousePosition);                   
+                    m_Points.Add(mousePosition);
+                
                     m_LineRenderer.positionCount = m_Points.Count;
                     m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePosition);
                     
@@ -93,14 +98,23 @@ public class DrawLine2D : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            m_LineRenderer.startWidth = lineWidth2;
-            m_LineRenderer.endWidth = lineWidth2;
-            //CreateDefaultEdgeCollider2D();
-            m_EdgeCollider2D.points = m_Points.ToArray();
-            line.AddComponent<SelfDestroyLine>();
-            m_LineRenderer.startColor = Color.cyan;
-            m_LineRenderer.endColor = Color.blue;
-            m_EdgeCollider2D.enabled = true;
+            if(m_Points.Count <= energySlider.value)
+            {
+                m_LineRenderer.startWidth = lineWidth2;
+                m_LineRenderer.endWidth = lineWidth2;
+                //CreateDefaultEdgeCollider2D();
+                m_EdgeCollider2D.points = m_Points.ToArray();
+                energySlider.value -= m_Points.Count;
+                line.AddComponent<SelfDestroyLine>();
+                m_LineRenderer.startColor = Color.cyan;
+                m_LineRenderer.endColor = Color.blue;
+                m_EdgeCollider2D.enabled = true;
+            }
+            else
+            {
+                ResetDefaultLineRenderer();
+                m_Points = new List<Vector2>();
+            }
         }
     }
 
@@ -117,7 +131,20 @@ public class DrawLine2D : MonoBehaviour
     {
         m_LineRenderer = line.AddComponent<LineRenderer>();
         m_LineRenderer.positionCount = 0;
-        m_LineRenderer.material = material; 
+        m_LineRenderer.material = material;
+        m_LineRenderer.startColor = Color.green;
+        m_LineRenderer.endColor = Color.green;
+        m_LineRenderer.startWidth = lineWidth;
+        m_LineRenderer.endWidth = lineWidth;
+        m_LineRenderer.useWorldSpace = true;
+        //line.AddComponent<SelfDestroyLine>();
+    }
+
+
+    protected virtual void ResetDefaultLineRenderer()
+    {
+        m_LineRenderer.positionCount = 0;
+        m_LineRenderer.material = material;
         m_LineRenderer.startColor = Color.red;
         m_LineRenderer.endColor = Color.red;
         m_LineRenderer.startWidth = lineWidth;
@@ -132,5 +159,17 @@ public class DrawLine2D : MonoBehaviour
         m_EdgeCollider2D.enabled = false;
     }
 
+    private void FixedUpdate()///gestisce la ricarica dell energia delle linee
+    {
+        if((energySlider.value + energyRecharge) <= maxEnergy)
+        {
+            energySlider.value += energyRecharge;
+        }
+        else
+        {
+            energySlider.value = maxEnergy;
+        }
+        
+    }
 }
 
