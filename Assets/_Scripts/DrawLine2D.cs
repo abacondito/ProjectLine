@@ -9,6 +9,7 @@ public class DrawLine2D : MonoBehaviour
 
     [SerializeField]
     protected LineRenderer m_LineRenderer;
+    protected Rigidbody2D m_Rigidbody2d;
     [SerializeField]
     protected bool m_AddCollider = true;
     [SerializeField]
@@ -106,6 +107,13 @@ public class DrawLine2D : MonoBehaviour
                 m_EdgeCollider2D.points = m_Points.ToArray();
                 energySlider.value -= m_Points.Count;
                 line.AddComponent<SelfDestroyLine>();
+                //aggiunta rigid body
+                m_Rigidbody2d = line.AddComponent<Rigidbody2D>();
+                m_Rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
+                m_Rigidbody2d.simulated = true;
+                m_Rigidbody2d.mass = 12;
+                m_Rigidbody2d.gravityScale = 0;
+                //fine aggiunta rigid body
                 m_LineRenderer.startColor = Color.cyan;
                 m_LineRenderer.endColor = Color.blue;
                 m_EdgeCollider2D.enabled = true;
@@ -150,6 +158,7 @@ public class DrawLine2D : MonoBehaviour
         m_LineRenderer.startWidth = lineWidth;
         m_LineRenderer.endWidth = lineWidth;
         m_LineRenderer.useWorldSpace = true;
+
         //line.AddComponent<SelfDestroyLine>();
     }
 

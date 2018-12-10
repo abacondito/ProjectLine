@@ -5,7 +5,7 @@ using UnityEngine;
 public class CostantSpeedForward : MonoBehaviour {
 
     private Rigidbody2D rb;
-    private float velocity=2.0f;
+    public float velocity=2.0f;
 
     // Use this for initialization
     void Start () {
