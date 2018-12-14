@@ -130,13 +130,13 @@ TextureImporter:
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20071163e72dce94da9e6ac666860fe0
+      spriteID: 9d736c04357ca25459b1c6cd0eae1c4a
       vertices: []
       indices: 
       edges: []
@@ -150,13 +150,13 @@ TextureImporter:
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b240bd56b53fe04e9c9d2f1e16a43a3
+      spriteID: 45401def186ef31479bcd1e6337ab55e
       vertices: []
       indices: 
       edges: []
@@ -165,18 +165,18 @@ TextureImporter:
       name: Angel NPC_2
       rect:
         serializedVersion: 2
-        x: 338
-        y: 447.75
+        x: 0
+        y: 298.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4bac694e19c675478d15dfce646b3be
+      spriteID: dee94e2cfc5b6e64a83da72ea87be866
       vertices: []
       indices: 
       edges: []
@@ -185,18 +185,18 @@ TextureImporter:
       name: Angel NPC_3
       rect:
         serializedVersion: 2
-        x: 507
-        y: 447.75
+        x: 169
+        y: 298.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 135ad5be9766da24b9aaafab241e0915
+      spriteID: a51b01bdc769aee449c14c09c65d0414
       vertices: []
       indices: 
       edges: []
@@ -205,18 +205,18 @@ TextureImporter:
       name: Angel NPC_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 298
-        width: 169
-        height: 149
+        x: 338
+        y: 298.75
+        width: 169.25
+        height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9012396d64f2af04aa02fa101f99b8da
+      spriteID: 021bab3456d5ec6418c5157ae1f30a8a
       vertices: []
       indices: 
       edges: []
@@ -225,18 +225,18 @@ TextureImporter:
       name: Angel NPC_5
       rect:
         serializedVersion: 2
-        x: 169
+        x: 507
         y: 298.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce527f7d64bb8f041a4cd1b99db07e41
+      spriteID: 4fa89cb9b36705043a999ea97d6b8f72
       vertices: []
       indices: 
       edges: []
@@ -245,18 +245,18 @@ TextureImporter:
       name: Angel NPC_6
       rect:
         serializedVersion: 2
-        x: 338
-        y: 298.75
+        x: 0
+        y: 149.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a33f6688f923df54c96aefbedb16210d
+      spriteID: dc4935ab281c4ed4085d9e8d2ed572d0
       vertices: []
       indices: 
       edges: []
@@ -265,18 +265,18 @@ TextureImporter:
       name: Angel NPC_7
       rect:
         serializedVersion: 2
-        x: 507
-        y: 298.75
+        x: 169
+        y: 149.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c04efea8e16892244b6142786ec0968f
+      spriteID: 22f47e24ef9b3994d9af4e1a22391f27
       vertices: []
       indices: 
       edges: []
@@ -285,18 +285,18 @@ TextureImporter:
       name: Angel NPC_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 338
         y: 149.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 134d1f035ff299c4a9c2e7159817e8bd
+      spriteID: 675e8016a3a75ba42a2118130ff64acb
       vertices: []
       indices: 
       edges: []
@@ -305,18 +305,18 @@ TextureImporter:
       name: Angel NPC_9
       rect:
         serializedVersion: 2
-        x: 169
+        x: 507
         y: 149.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11b3ce432aba1054c94ef3c8e9268183
+      spriteID: 5e942e7767134964eabb945c30998886
       vertices: []
       indices: 
       edges: []
@@ -325,18 +325,18 @@ TextureImporter:
       name: Angel NPC_10
       rect:
         serializedVersion: 2
-        x: 337
-        y: 149
-        width: 169
-        height: 149
+        x: 0
+        y: 0.75
+        width: 169.25
+        height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe375ef9ccfee7b46a69b9699ecee220
+      spriteID: c60a601d75da9d149bd8064297936b40
       vertices: []
       indices: 
       edges: []
@@ -345,18 +345,18 @@ TextureImporter:
       name: Angel NPC_11
       rect:
         serializedVersion: 2
-        x: 506
-        y: 150
-        width: 169
-        height: 149
+        x: 169
+        y: 0.75
+        width: 169.25
+        height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b834fa0056a5094eb8a87fdad74cba3
+      spriteID: 5d7145403f624e545bf7d08fc27bba47
       vertices: []
       indices: 
       edges: []
@@ -365,18 +365,18 @@ TextureImporter:
       name: Angel NPC_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 338
         y: 0.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ae9e3abfdd529a4c87b28153512a6e3
+      spriteID: b61e76ab2c02da14b9f4a3917328cae8
       vertices: []
       indices: 
       edges: []
@@ -385,58 +385,18 @@ TextureImporter:
       name: Angel NPC_13
       rect:
         serializedVersion: 2
-        x: 169
-        y: 0.75
-        width: 169.25
-        height: 149.25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b698f6adb278714bae3e85faca120d4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel NPC_14
-      rect:
-        serializedVersion: 2
-        x: 338
-        y: 0.75
-        width: 169.25
-        height: 149.25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d1d63b88218268488607a23fd297e37
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel NPC_15
-      rect:
-        serializedVersion: 2
         x: 507
         y: 0.75
         width: 169.25
         height: 149.25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac4597ae1b54ab34e9e2cea531819601
+      spriteID: 55a9044e9ac31f34fb4f9405097c0865
       vertices: []
       indices: 
       edges: []
