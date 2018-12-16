@@ -16,7 +16,7 @@ public class BouncingBullet : MonoBehaviour {
 
     void OnEnable()
     {
-        rb.velocity = transform.right * bulletSpeed;
+        rb.velocity = transform.right * -bulletSpeed;
     }
     void OnCollisionEnter2D(Collision2D other)
     {

@@ -6,7 +6,6 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 
 	public float speed = 2;
 	public Transform Player;
-	public Transform Angelo;
 	public GameObject proiettilePrefab;
 	public float timeOrigin = 2.0f;
 	public GameObject Arriva;
@@ -14,13 +13,15 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 	public GameObject Carica;
 	public GameObject Spara;
 	private float timeleft;
-	private GameObject proiettileIstanza;
-	private Transform nuovaDirezione;
 	public float angolo;
+    public Vector3 posizione;
+    public Quaternion rotazione;
 
 	// Use this for initialization
 	void Start () {
 		timeleft = timeOrigin;
+        posizione = new Vector3(1, 1, 1);
+        rotazione = Quaternion.identity;
 	}
 
 	// Update is called once per frame
@@ -36,9 +37,9 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 			if (Spara.activeSelf) {
 				if (timeleft == timeOrigin) {
 					angolo = Random.Range (-25.0f, 25.0f);
-					nuovaDirezione = Angelo;
-					nuovaDirezione.Rotate (0, angolo, 0);
-					proiettileIstanza = Instantiate (proiettilePrefab, Angelo.position, nuovaDirezione.rotation);
+					posizione= transform.position;
+                    rotazione = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, angolo));
+                    Instantiate (proiettilePrefab, posizione,rotazione);
 				}
 				timeleft -= Time.deltaTime;
 				if (timeleft < 0) {
