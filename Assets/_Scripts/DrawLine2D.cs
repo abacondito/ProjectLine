@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//creates the line when the screen is touched
+
 
 public class DrawLine2D : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class DrawLine2D : MonoBehaviour
     protected LineRenderer m_LineRenderer;
     protected Rigidbody2D m_Rigidbody2d;
     [SerializeField]
-    protected bool m_AddCollider = true;
+    protected bool m_AddCollider = true;//bool that determines if the line will have a collider
     [SerializeField]
     protected EdgeCollider2D m_EdgeCollider2D;
     [SerializeField]
@@ -20,12 +22,13 @@ public class DrawLine2D : MonoBehaviour
     protected List<Vector2> m_Points;
     private Shader shader;
     public Material material;
-    public float lineWidth = 0.05f;
-    public float lineWidth2 = 0.0f;
-    public GameObject prefabLine;
+
+    public float lineWidth = 0.05f;//width of the line before solidification
+    public float lineWidth2 = 0.0f;//width of the solidified line
+    public GameObject prefabLine;//prefab for the line
     GameObject line;
-    public Slider energySlider;
-    public float energyRecharge=0.5f;
+    public Slider energySlider;//the energy bar
+    public float energyRecharge=0.5f;//how much the energy recharges
     public float maxEnergy = 100.0f;
 
     public virtual LineRenderer lineRenderer
@@ -62,9 +65,8 @@ public class DrawLine2D : MonoBehaviour
 
     protected virtual void Awake()
     {
-        Input.simulateMouseWithTouches = true;
-        //shader = Shader.Find("Particles/Additive");
-        //material = new Material(shader);        
+        Input.simulateMouseWithTouches = true;//probably not necessary
+
         if (m_Camera == null)
         {
             m_Camera = Camera.main;
@@ -74,59 +76,59 @@ public class DrawLine2D : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))//if screen is touched and it wasn't before
         {
 
-            Reset();
+            CreateNewLine();
            
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))//the screen is touched
         {
-            Vector2 mousePosition = m_Camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePosition = m_Camera.ScreenToWorldPoint(Input.mousePosition);//get mouse position
             
                 if (!m_Points.Contains(mousePosition))
                 {
                     m_Points.Add(mousePosition);
                 
                     m_LineRenderer.positionCount = m_Points.Count;
-                    m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePosition);
+                    m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePosition);//add the new position to the current line
                     
                     if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
                     {
-                        m_EdgeCollider2D.points = m_Points.ToArray();
+                        m_EdgeCollider2D.points = m_Points.ToArray();//update collider
                     }
                 }                
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))//if the touch is interrumpted
         {
-            if(m_Points.Count <= energySlider.value)
+            if(m_Points.Count <= energySlider.value)//check if energy is enough
             {
+                //the line is made solid: the collider is activated and the rigidbody added
                 m_LineRenderer.startWidth = lineWidth2;
                 m_LineRenderer.endWidth = lineWidth2;
-                //CreateDefaultEdgeCollider2D();
                 m_EdgeCollider2D.points = m_Points.ToArray();
-                energySlider.value -= m_Points.Count;
-                line.AddComponent<SelfDestroyLine>();
-                //aggiunta rigid body
+                energySlider.value -= m_Points.Count;//energy is subtracted
+                line.AddComponent<SelfDestroyLine>();//the component for line autodestruction is added
+                //add rigid body
                 m_Rigidbody2d = line.AddComponent<Rigidbody2D>();
                 m_Rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
                 m_Rigidbody2d.simulated = true;
                 m_Rigidbody2d.mass = 12;
                 m_Rigidbody2d.gravityScale = 0;
-                //fine aggiunta rigid body
+                //end add rigid body
                 m_LineRenderer.startColor = Color.cyan;
                 m_LineRenderer.endColor = Color.blue;
                 m_EdgeCollider2D.enabled = true;
             }
-            else
+            else//not enough energy,the line is not made solid and canceleds
             {
-                ResetDefaultLineRenderer();
+                m_LineRenderer.positionCount = 0;
                 m_Points = new List<Vector2>();
             }
         }
     }
 
-    protected virtual void Reset()
+    protected virtual void CreateNewLine()
     {
         line = Instantiate(prefabLine);
         CreateDefaultLineRenderer();
@@ -145,22 +147,8 @@ public class DrawLine2D : MonoBehaviour
         m_LineRenderer.startWidth = lineWidth;
         m_LineRenderer.endWidth = lineWidth;
         m_LineRenderer.useWorldSpace = true;
-        //line.AddComponent<SelfDestroyLine>();
     }
-
-
-    protected virtual void ResetDefaultLineRenderer()
-    {
-        m_LineRenderer.positionCount = 0;
-        m_LineRenderer.material = material;
-        m_LineRenderer.startColor = Color.red;
-        m_LineRenderer.endColor = Color.red;
-        m_LineRenderer.startWidth = lineWidth;
-        m_LineRenderer.endWidth = lineWidth;
-        m_LineRenderer.useWorldSpace = true;
-
-        //line.AddComponent<SelfDestroyLine>();
-    }
+       
 
     protected virtual void CreateDefaultEdgeCollider2D()
     {
@@ -168,7 +156,7 @@ public class DrawLine2D : MonoBehaviour
         m_EdgeCollider2D.enabled = false;
     }
 
-    private void FixedUpdate()///gestisce la ricarica dell energia delle linee
+    private void FixedUpdate()//manages the recharge for line's energy
     {
         if((energySlider.value + energyRecharge) <= maxEnergy)
         {
