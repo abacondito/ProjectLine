@@ -5,17 +5,20 @@ using UnityEngine;
 public class AngeloAvvicinaColpisce : MonoBehaviour {
 
 	public float speed = 2;
-	public Transform Player;
+	public float DistanzaRavvicinata = 5.0f;
+	private Vector3 Player = new Vector3(0,0,0);
 	public GameObject proiettilePrefab;
-	public float timeOrigin = 2.0f;
+
+	public float timeOrigin = 1.0f;
 	public GameObject Arriva;
 	public GameObject Fermo;
 	public GameObject Carica;
 	public GameObject Spara;
 	private float timeleft;
-	public float angolo;
-    public Vector3 posizione;
-    public Quaternion rotazione;
+	public float cono = 15.0f;
+	private float angolo;
+    private Vector3 posizione;
+    private Quaternion rotazione;
 
 	// Use this for initialization
 	void Start () {
@@ -26,9 +29,9 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Vector3 displacement = Player.position -transform.position;
+		Vector3 displacement = Player - transform.position;
 		displacement = displacement.normalized;
-		if (Vector2.Distance (Player.position, transform.position) > 4.0f) {
+		if (Vector2.Distance (Player, transform.position) > DistanzaRavvicinata) {
 			transform.position += (displacement * speed * Time.deltaTime);
 
 		} else {
@@ -36,11 +39,12 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 
 			if (Spara.activeSelf) {
 				if (timeleft == timeOrigin) {
-					angolo = Random.Range (-25.0f, 25.0f);
-					posizione= transform.position;
+					angolo = Random.Range (- cono, cono);
+					posizione = transform.position;
                     rotazione = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, angolo));
                     Instantiate (proiettilePrefab, posizione,rotazione);
 				}
+
 				timeleft -= Time.deltaTime;
 				if (timeleft < 0) {
 					Spara.SetActive (false);
@@ -71,9 +75,6 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 				Fermo.SetActive (true);
 			}
 		}
-
-
-
 	}
 
 }
