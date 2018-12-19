@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  DistanzaRavvicinata: 15
+  DistanzaRavvicinata: 10
   proiettilePrefab: {fileID: 1469347912238252, guid: 4ceb79a33186fec44b3118dfef4d3faa,
     type: 2}
   timeOrigin: 1
@@ -257,7 +257,7 @@ MonoBehaviour:
   Fermo: {fileID: 1884938120229814}
   Carica: {fileID: 1305384058122982}
   Spara: {fileID: 1509089751348602}
-  cono: 15
+  cono: 4
   shootPoint: {fileID: 4169025540050556}
 --- !u!212 &212024562057416294
 SpriteRenderer:
