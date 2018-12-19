@@ -19,6 +19,7 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 	private float angolo;
     private Vector3 posizione;
     private Quaternion rotazione;
+    public Transform shootPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -40,9 +41,8 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 			if (Spara.activeSelf) {
 				if (timeleft == timeOrigin) {
 					angolo = Random.Range (- cono, cono);
-					posizione = transform.position;
-                    rotazione = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, angolo));
-                    Instantiate (proiettilePrefab, posizione,rotazione);
+                    rotazione = Quaternion.Euler(shootPoint.transform.rotation.eulerAngles + new Vector3(0, 0, angolo));
+                    Instantiate (proiettilePrefab, shootPoint.position,rotazione);
 				}
 
 				timeleft -= Time.deltaTime;

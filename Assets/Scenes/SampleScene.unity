@@ -720,31 +720,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
-    - target: {fileID: 114707445755273788, guid: cc9a85166c3adfc4887bd35fac506e4b,
-        type: 2}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 659644307}
-    - target: {fileID: 114707445755273788, guid: cc9a85166c3adfc4887bd35fac506e4b,
-        type: 2}
-      propertyPath: DistanzaRavvicinata
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114707445755273788, guid: cc9a85166c3adfc4887bd35fac506e4b,
-        type: 2}
-      propertyPath: timeOrigin
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114707445755273788, guid: cc9a85166c3adfc4887bd35fac506e4b,
-        type: 2}
-      propertyPath: cono
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 212024562057416294, guid: cc9a85166c3adfc4887bd35fac506e4b,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc9a85166c3adfc4887bd35fac506e4b, type: 2}
   m_IsPrefabAsset: 0
