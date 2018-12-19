@@ -32,12 +32,12 @@ public class BouncingBullet : MonoBehaviour {
     void CollisionWithWall(Collision2D other)
     {
         //For Reflecting The Bullet
-        Vector3 reflectedPosition = Vector3.Reflect(transform.right, other.contacts[0].normal);
+        Vector3 reflectedPosition = Vector3.Reflect(rb.velocity.normalized, other.contacts[0].normal);
         rb.velocity = (reflectedPosition).normalized * bulletSpeed;
 
         //For Rotate The Bullet Towards its velocity
-        Vector3 dir = rb.velocity;
+        /*Vector3 dir = rb.velocity;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        rb.MoveRotation(angle);
+        rb.MoveRotation(angle);*/
     }
 }
