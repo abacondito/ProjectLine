@@ -22,12 +22,17 @@ public class BouncingBullet : MonoBehaviour {
     {
         if (other.transform.CompareTag("Player"))
         {
+            Spawnerangeli.Restart();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         if (other.transform.CompareTag("Enemy"))
-        {
+        {   
             Destroy(other.gameObject);
             Destroy(gameObject);
+            if(other.gameObject.GetComponentInChildren<AngeloAvvicinaColpisce>()){
+                Spawnerangeli.Aumenta();
+            };
+
         }
     }
 }

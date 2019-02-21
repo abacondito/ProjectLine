@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   DistanzaRavvicinata: 10
-  proiettilePrefab: {fileID: 1469347912238252, guid: 4ceb79a33186fec44b3118dfef4d3faa,
+  proiettilePrefab: {fileID: 1805715419495530, guid: 4ceb79a33186fec44b3118dfef4d3faa,
     type: 2}
   timeOrigin: 1
   Arriva: {fileID: 1253430532981884}
