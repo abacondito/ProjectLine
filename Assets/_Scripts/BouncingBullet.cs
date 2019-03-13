@@ -18,7 +18,7 @@ public class BouncingBullet : MonoBehaviour {
     {
         rb.velocity = transform.right * -bulletSpeed;
     }
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Player"))
         {
@@ -29,7 +29,7 @@ public class BouncingBullet : MonoBehaviour {
         {   
             Destroy(other.gameObject);
             Destroy(gameObject);
-            if(other.gameObject.GetComponentInChildren<AngeloAvvicinaColpisce>()){
+            if(other.gameObject.GetComponents<AngeloAvvicinaColpisce>().Length != 0){
                 Spawnerangeli.Aumenta();
             };
 

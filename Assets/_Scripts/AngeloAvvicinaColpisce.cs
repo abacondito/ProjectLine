@@ -21,6 +21,8 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
     private Quaternion rotazione;
     public Transform shootPoint;
 
+	private bool fermo = false;
+
 	// Use this for initialization
 	void Start () {
 		timeleft = timeOrigin;
@@ -32,7 +34,7 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 	void Update () {
 		Vector3 displacement = Player - transform.position;
 		displacement = displacement.normalized;
-		if (Vector2.Distance (Player, transform.position) > DistanzaRavvicinata) {
+		if ((Vector2.Distance (Player, transform.position) > DistanzaRavvicinata)&& fermo == false) {
 			transform.position += (displacement * speed * Time.deltaTime);
 
 		} else {
@@ -75,6 +77,10 @@ public class AngeloAvvicinaColpisce : MonoBehaviour {
 				Fermo.SetActive (true);
 			}
 		}
+	}
+
+	public void ferma(){
+		fermo = true;
 	}
 
 }
